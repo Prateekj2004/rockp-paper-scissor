@@ -2,23 +2,27 @@ let userscore=0;
 let compscore=0;
 const choices=document.querySelectorAll(".choice");
 const msg=document.querySelector("#mssg");
+const userpa=document.querySelector("#user-score");
+const comppa=document.querySelector("#comp-score");
 const gencompchoice =()=>{
     const options=["rock","paper","scissor"];
     const idx=Math.floor(Math.random()*3);
     return options[idx];
 };
 const drawgame=()=>{
-    console.log("game was draw");
     msg.innerText="Game was Draw";
+    msg.style.backgroundColor="#081b31";
 };
 const showwinner=(userwin)=>{
     if(userwin){
-        console.log("you win!");
+        userscore++;
+        userpa.innerText=userscore;
         msg.innerText="You Win";
         msg.style.backgroundColor="green";
     }
     else{
-        console.log("you lose");
+        compscore++;
+        comppa.innerText=compscore;
         msg.innerText="You lose";
         msg.style.backgroundColor="red";
     }
